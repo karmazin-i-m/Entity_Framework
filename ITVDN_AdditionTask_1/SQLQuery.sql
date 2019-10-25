@@ -1,0 +1,20 @@
+CREATE DATABASE MyDatabase
+GO
+
+USE MyDatabase
+GO;
+
+CREATE TABLE MyTable
+(
+	Id INT IDENTITY PRIMARY KEY,
+	FName VARCHAR(20),
+	LName VARCHAR(50)
+)
+
+INSERT MyTable VALUES
+(
+	'Илья', 'Кармазин'
+)
+
+SELECT TOP(1000) * FROM MyTable
+
