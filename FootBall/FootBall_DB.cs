@@ -21,6 +21,7 @@ namespace FootBall
         public virtual DbSet<Position> Positions { get; set; }
     }
 
+
     internal class Initialazer : DropCreateDatabaseAlways<FootBall_DB>
     {
         protected override void Seed(FootBall_DB db)
