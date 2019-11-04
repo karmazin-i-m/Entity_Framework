@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClassWork.InternetShop.DBL.Interfaces;
 
 namespace ClassWork.InternetShop.DBL.Models
 {
-    public class Customer
+    public class Customer: IModel 
     {
         public Int32 Id { get; set; }
         public String Name { get; set; }
-        public ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
         public Customer()
         {
             Orders = new List<Order>();

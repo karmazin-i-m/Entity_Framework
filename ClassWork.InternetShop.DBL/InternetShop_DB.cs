@@ -8,10 +8,14 @@ namespace ClassWork.InternetShop.DBL
 
     public class InternetShop_DB : DbContext
     {
+        static InternetShop_DB()
+        {
+            Database.SetInitializer(new InitializerObject());
+        }
         public InternetShop_DB()
             : base("name=InternetShop_DB")
         {
-            Database.SetInitializer(new InitializerObject());
+           
         }
 
         public virtual DbSet<Product> Products { get; set; }
@@ -20,8 +24,10 @@ namespace ClassWork.InternetShop.DBL
         public virtual DbSet<Customer> Customers { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<ProductInfo>().ToTable("ProductsInfo");
+        { 
+            modelBuilder.Entity<Product>()
+                .HasRequired(p => p.ProductInfo)
+                .WithRequiredPrincipal(p => p.Product);
 
             modelBuilder.Entity<Product>()
                 .HasRequired(p => p.ProductInfo)
@@ -39,11 +45,9 @@ namespace ClassWork.InternetShop.DBL
 
             modelBuilder.Entity<Customer>()
                 .HasMany(c => c.Orders)
-                .WithOptional(o => o.Customer);
+                .WithRequired(o => o.Customer);
 
             base.OnModelCreating(modelBuilder);
         }
     }
-
-
 }

@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using ClassWork.InternetShop.DBL;
 using ClassWork.InternetShop.DBL.Models;
+using ClassWork.InternetShop.DBL.CRUD_for_models;
+
+using System.Data.Entity;
 
 namespace ClassWork_Task_1
 {
@@ -12,13 +15,25 @@ namespace ClassWork_Task_1
     {
         static void Main(string[] args)
         {
-            using (InternetShop_DB db = new InternetShop_DB())
+            Product_CRUD product_CRUD = Product_CRUD.GetInstanse();
+            Order_CRUD order_CRUD = Order_CRUD.GetInstanse();
+            ProductInfo_CRUD productInfo_CRUD = ProductInfo_CRUD.GetInstanse();
+
+            foreach (var item in product_CRUD.ReadAll())
             {
-                foreach(Product product in db.Products)
-                {
-                    Console.WriteLine(product);
-                }
+                Console.WriteLine(item);
             }
+            Console.WriteLine(new String('-', 80));
+            foreach (var item in order_CRUD.ReadAll())
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine(new String('-', 80));
+            foreach (var item in productInfo_CRUD.ReadAll())
+            {
+                Console.WriteLine(item);
+            }
+
             Console.ReadLine();
         }
     }

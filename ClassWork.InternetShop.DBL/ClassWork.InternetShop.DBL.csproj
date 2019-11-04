@@ -50,7 +50,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CRUD for models\Customer_CRUD.cs" />
+    <Compile Include="CRUD for models\Order_CRUD.cs" />
+    <Compile Include="CRUD for models\ProductInfo_CRUD.cs" />
+    <Compile Include="CRUD for models\Product_CRUD.cs" />
     <Compile Include="Initializators\InitializerObject.cs" />
+    <Compile Include="Initializators\ObjectInitializer.cs" />
+    <Compile Include="Interfaces\ICRUD.cs" />
+    <Compile Include="Interfaces\IModel.cs" />
     <Compile Include="InternetShop_DB.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Order.cs" />

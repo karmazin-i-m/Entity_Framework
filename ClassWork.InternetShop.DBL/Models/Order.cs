@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClassWork.InternetShop.DBL.Interfaces;
 
 namespace ClassWork.InternetShop.DBL.Models
 {
-    public class Order
+    public class Order: IModel 
     {
         public Int32 Id { get; set; }
-        public ICollection<Product> Products { get; set; }
-        public Customer Customer { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
+        public virtual Customer Customer { get; set; }
 
         public Order()
         {
@@ -19,7 +20,7 @@ namespace ClassWork.InternetShop.DBL.Models
 
         public override string ToString()
         {
-            return $"Order, Id: {this.Id}, Customer: [{Customer}], Products: {Products.Count}";
+            return $"Order, Id: {this.Id}, Customer: [{Customer.Name}], Products: {Products.Count}";
         }
     }
 }
