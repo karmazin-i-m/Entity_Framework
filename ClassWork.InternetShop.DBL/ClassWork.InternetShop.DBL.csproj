@@ -50,6 +50,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configurations\CustomersBaseConfiguration.cs" />
+    <Compile Include="Configurations\OrdersBaseConfiguration.cs" />
+    <Compile Include="Configurations\ProductsBaseConfiguration.cs" />
+    <Compile Include="Configurations\ProductsInfoBaseConfiguration.cs" />
     <Compile Include="CRUD for models\Customer_CRUD.cs" />
     <Compile Include="CRUD for models\Order_CRUD.cs" />
     <Compile Include="CRUD for models\ProductInfo_CRUD.cs" />
